@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CalculoIntereses" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculadora de Intereses para Evaluacion de proyectos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqy-ZF-K0L">
+                                <rect key="frame" x="20" y="64" width="374" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="44M-qf-dVU">
+                                <rect key="frame" x="20" y="147" width="374" height="258"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-5u-rJq">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bFa-0l-giI">
+                                                <rect key="frame" x="8" y="8" width="358" height="35"/>
+                                                <segments>
+                                                    <segment title="Interes Simple"/>
+                                                    <segment title="Interes Compuesto"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="bFa-0l-giI" firstAttribute="leading" secondItem="C7m-5u-rJq" secondAttribute="leading" constant="8" id="3C3-tg-HLK"/>
+                                            <constraint firstAttribute="bottom" secondItem="bFa-0l-giI" secondAttribute="bottom" constant="8" id="9To-gt-rpK"/>
+                                            <constraint firstItem="bFa-0l-giI" firstAttribute="top" secondItem="C7m-5u-rJq" secondAttribute="top" constant="8" id="K3P-En-5h5"/>
+                                            <constraint firstAttribute="trailing" secondItem="bFa-0l-giI" secondAttribute="trailing" constant="8" id="lWU-W0-AcS"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="U8p-SL-qyy">
+                                        <rect key="frame" x="0.0" y="68" width="374" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valor presente:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXU-vy-e6h">
+                                                <rect key="frame" x="0.0" y="0.0" width="115.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ihk-ie-unk">
+                                                <rect key="frame" x="134.5" y="0.0" width="239.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="WJD-8o-OuJ">
+                                        <rect key="frame" x="0.0" y="120" width="374" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valor futuro:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yu-4k-18b">
+                                                <rect key="frame" x="0.0" y="0.0" width="94.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zDV-Wb-vOZ">
+                                                <rect key="frame" x="113.5" y="0.0" width="260.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Wv6-OY-mA7">
+                                        <rect key="frame" x="0.0" y="172" width="374" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rT1-aa-wVi">
+                                                <rect key="frame" x="0.0" y="0.0" width="57" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gbd-Jp-QG8">
+                                                <rect key="frame" x="76" y="0.0" width="298" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="mWR-T0-sGb">
+                                        <rect key="frame" x="0.0" y="224" width="374" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Periodos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31m-pE-FWw">
+                                                <rect key="frame" x="0.0" y="0.0" width="72" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L2w-pl-alY">
+                                                <rect key="frame" x="91" y="0.0" width="283" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="C7m-5u-rJq" firstAttribute="width" secondItem="44M-qf-dVU" secondAttribute="width" id="wcJ-Nt-owZ"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qt0-qt-iy0">
+                                <rect key="frame" x="20" y="425" width="374" height="30"/>
+                                <state key="normal" title="Calcular intereses"/>
+                                <connections>
+                                    <action selector="calcularIntereses:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IZZ-Qb-5I9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyb-da-3f3">
+                                <rect key="frame" x="20" y="463" width="374" height="30"/>
+                                <state key="normal" title="Limpiar Valores">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="limpiarValores:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DiJ-BU-KKL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iyb-da-3f3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="OJT-fC-MPX"/>
+                            <constraint firstItem="Qt0-qt-iy0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="VsN-wo-WdQ"/>
+                            <constraint firstItem="Gqy-ZF-K0L" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="bQC-0j-rg2"/>
+                            <constraint firstItem="iyb-da-3f3" firstAttribute="top" secondItem="Qt0-qt-iy0" secondAttribute="bottom" constant="8" id="baZ-kT-TdY"/>
+                            <constraint firstItem="Qt0-qt-iy0" firstAttribute="top" secondItem="44M-qf-dVU" secondAttribute="bottom" constant="20" id="c5e-09-vt2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qt0-qt-iy0" secondAttribute="trailing" constant="20" id="eA8-dw-b21"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="44M-qf-dVU" secondAttribute="trailing" constant="20" id="eXe-Kb-tsJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gqy-ZF-K0L" secondAttribute="trailing" constant="20" id="mPc-9T-SQE"/>
+                            <constraint firstItem="44M-qf-dVU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pSW-jP-fxK"/>
+                            <constraint firstItem="44M-qf-dVU" firstAttribute="top" secondItem="Gqy-ZF-K0L" secondAttribute="bottom" constant="16" id="rSY-AW-rii"/>
+                            <constraint firstItem="Gqy-ZF-K0L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vNf-uT-pUn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iyb-da-3f3" secondAttribute="trailing" constant="20" id="ztj-yE-ENE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="interesTextField" destination="Gbd-Jp-QG8" id="q5J-o2-7Pb"/>
+                        <outlet property="periodosTextField" destination="L2w-pl-alY" id="qTC-hk-b0e"/>
+                        <outlet property="tipoIntereses" destination="bFa-0l-giI" id="Ggd-KR-M9e"/>
+                        <outlet property="valorFuturoTextField" destination="zDV-Wb-vOZ" id="5Ry-ut-4Ro"/>
+                        <outlet property="valorPresenteTextField" destination="Ihk-ie-unk" id="DN2-qM-emg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+</document>
