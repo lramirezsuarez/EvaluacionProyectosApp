@@ -16,6 +16,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var interesTextField: UITextField!
     @IBOutlet weak var periodosTextField: UITextField!
     
+    @IBOutlet weak var gananciaTextField: UITextField!
+    @IBOutlet weak var inversionTextField: UITextField!
+    @IBOutlet weak var rentabilidadLabel: UILabel!
+    
+    @IBOutlet weak var bottomScrollViewConstraint: NSLayoutConstraint!
+    
     @IBAction func calcularIntereses(_ sender: Any) {
         guard let valorPresenteString = valorPresenteTextField.text,
             let valorFuturoString = valorFuturoTextField.text,
@@ -37,6 +43,18 @@ class ViewController: UIViewController {
         resetearValores()
     }
     
+    
+    @IBAction func calcularRentabilidad(_ sender: Any) {
+        guard let gananciaString = gananciaTextField.text, let inversionString = inversionTextField.text else {
+            return
+        }
+        if let gananciaNumber = numberFormmatter.number(from: gananciaString), let gananciaDouble = Double(exactly: gananciaNumber), let inversionNumber = numberFormmatter.number(from: inversionString), let inversionDouble = Double(exactly: inversionNumber) {
+            let rentabilidad = (gananciaDouble / inversionDouble) * 100
+            rentabilidadLabel.text = "La rentabilidad es: \(rentabilidad)%"
+        }
+        
+    }
+    
     private var alreadyShowingAlert = false
     private var valorPresente = 0.0
     private var valorFuturo = 0.0
@@ -47,7 +65,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        valorPresenteTextField.delegate = self
+        valorFuturoTextField.delegate = self
+        interesTextField.delegate = self
+        periodosTextField.delegate = self
+        gananciaTextField.delegate = self
+        inversionTextField.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        hideKeyboardWhenTappedAround()
         numberFormmatter.numberStyle = .decimal
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func checkDoubleValues(vpString: String, vfString: String, iString: String, pString: String) {
@@ -171,5 +205,33 @@ class ViewController: UIViewController {
     
     private func calcularPeriodosCompuesto(vf: Double, vp: Double, i: Double) -> Double {
         return log(vf / vp) / log(1 + i)
+    }
+    
+    // MARK: Keyboard helper function
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            bottomScrollViewConstraint.constant = keyboardSize.height
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        bottomScrollViewConstraint.constant = 0
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tapGesture = UITapGestureRecognizer(target: self,
+                         action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func hideKeyboard() {
+        view.endEditing(true)
     }
 }
